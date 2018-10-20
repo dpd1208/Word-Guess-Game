@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Oregon Trail Word Guess</title>
+    <link rel="stylesheet" type="text/css" href="./assets/style.css">
+    <script src="script.js"></script>
+    </head>
+    <body>
+    <h1>Oregon Trail Word Guess</h1>
+      <p id="guessSection"></p>
+      <form name="inputForm">
+      <input name="letter" type="text" size="5" maxlength="1">
+      <input name="guessButton" type="button" value="Guess" onClick="checkEntry()">
+      
+      <p id="guessedLetters">Letters Guessed:</p>
+      <img src="./assets/wagon.jpg" id="wagon"><br />
+      <input name="refresh" type="button" value="New Game" onClick="location.reload()">
+      </form>
+    
+    </body>
+    </html>
