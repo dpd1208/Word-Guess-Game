@@ -1,3 +1,5 @@
+// set up game words as an array of their letters
+
 var gameWords = [
       ["P", "I", "O", "N", "E", "E", "R"],
       ["F","O","R","D","I","N","G"],
@@ -6,21 +8,22 @@ var gameWords = [
       ["W","A","G","O","N"],
       ["O","R","E","G","O","N"]
     ]
-    var random = Math.floor((Math.random()*(gameWords.length-1))); 
+
+    var random = Math.floor((Math.random()*(gameWords.length-1))); // set a random word to the random variable 
     
     var gameWord = gameWords[random]; // the game word will be chosen from gameWords array
-    var wordArray = new Array(gameWord.length);
-    var wrongGuesses = 0;
+    var wordArray = new Array(gameWord.length); // an array is created under wordArray variable set to the length of the random game word
+    var wrongGuesses = 0; // creates variable to hold # of wrong guesses
     
     // the letters in the game word are converted to underscores
     for (var i = 0; i < wordArray.length; i++){
         wordArray[i] = "_ ";
     }
     
-    // shows the game word as underscores
+    // shows the game word as underscores in the document
     function showWordArray(){
         for (var i = 0; i < wordArray.length; i++){
-        var guessSection = document.getElementById("guessSection"); // shows the game word in the #worArray <p> element
+        var guessSection = document.getElementById("guessSection"); // creates a variable to store the 
         var letters = document.createTextNode(wordArray[i]); 
         guessSection.appendChild(letters);
         }
@@ -40,17 +43,17 @@ var gameWords = [
         b.value = "";
         }
         
-        //deletes the guessfield and replaces it with the new one
+        //deletes the applicable underscore and replaces it with the new one
         var guessSection = document.getElementById("guessSection");
         guessSection.innerHTML=""; 
         showWordArray();
         
-        // if a guessed letter is not in the word, the letter will be put on the "wrong letters"-list and hangman grows
+        // if a guessed letter is not in the word, the letter will be put on the "guessed letters"-list
         if(!correctGuess){
             var guessedLetters = document.getElementById("guessedLetters");
             var letters = document.createTextNode(" " + entry);
             guessedLetters.appendChild(letters); 
-            wrongGuesses++;
+            wrongGuesses++; // wrongGuesses variable set at begining is increases
         }
         
         //checks if all letters have been found
