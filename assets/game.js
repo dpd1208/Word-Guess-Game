@@ -1,6 +1,7 @@
-// set up game words as an array of their letters
+//var gameOn = false;
+window.onkeyup = function(e) {
 
-var gameWords = [
+var gameWords = [   // set up game words as an array of their letters
       ["P", "I", "O", "N", "E", "E", "R"],
       ["F","O","R","D","I","N","G"],
       ["C","H","O","L","E","R","A"],
@@ -8,8 +9,7 @@ var gameWords = [
       ["W","A","G","O","N"],
       ["O","R","E","G","O","N"]
     ]
-
-    var random = Math.floor((Math.random()*(gameWords.length-1))); // set a random word to the random variable 
+    var random = Math.floor((Math.random()*(gameWords.length))); // set a random word to the random variable 
     
     var gameWord = gameWords[random]; // the game word will be chosen from gameWords array
     var wordArray = new Array(gameWord.length); // an array is created under wordArray variable set to the length of the random game word
@@ -23,24 +23,27 @@ var gameWords = [
     // shows the game word as underscores in the document
     function showWordArray(){
         for (var i = 0; i < wordArray.length; i++){
-        var guessSection = document.getElementById("guessSection"); // creates a variable to store the 
-        var letters = document.createTextNode(wordArray[i]); 
+        var guessSection = document.getElementById("guessSection"); // creates a variable to store underscores in the guessSection div
+        var letters = document.createTextNode(wordArray[i]); //creates a variable to replace underscores as letters are guessed correctly
         guessSection.appendChild(letters);
         }
-    }
+}
     
     //checks if the the guessed letter matches one or more of the letters in the game word
-    var checkEntry = function(){
-        var f = document.inputForm; 
-        var b = f.elements["letter"]; 
-        var entry = b.value; // the letter provided by the user
-        entry = entry.toUpperCase();
+        //while (gameOn = true) {     
+        window.onkeyup = function(event) { 
+            var guess = event.key;
+            var entry = guess.toUpperCase(); 
+            //var entry = b; // the letter provided by the user
+           
+
         for (var i = 0; i < gameWord.length; i++){
             if(gameWord[i] === entry){
                 wordArray[i] = entry + " ";
                 var correctGuess = true;
             }
-        b.value = "";
+       guess = "";
+       //gameOn = true;
         }
         
         //deletes the applicable underscore and replaces it with the new one
@@ -64,16 +67,17 @@ var gameWords = [
             }
         }
         if(win){
-            window.alert("Winner!");
+            window.alert("You made it to Oregon!");
         }
+    
         
         //once you got six wrong letters, you lose
         if(wrongGuesses === 6){
-            window.alert("Uh...I guess you're dead now.");
+            window.alert("You died of typhoid fever");
+            //gameOn = false;
         }
     }
-    
     function init(){
         showWordArray();
     }
-    
+}
