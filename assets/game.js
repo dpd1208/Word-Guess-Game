@@ -1,6 +1,6 @@
-//var gameOn = false;
+var gameOn = false;
 window.onkeyup = function(e) {
-
+    
 var gameWords = [   // set up game words as an array of their letters
       ["P", "I", "O", "N", "E", "E", "R"],
       ["F","O","R","D","I","N","G"],
@@ -43,7 +43,7 @@ var gameWords = [   // set up game words as an array of their letters
                 var correctGuess = true;
             }
        guess = "";
-       //gameOn = true;
+       gameOn = true;
         }
         
         //deletes the applicable underscore and replaces it with the new one
@@ -74,7 +74,9 @@ var gameWords = [   // set up game words as an array of their letters
         //once you got six wrong letters, you lose
         if(wrongGuesses === 6){
             window.alert("You died of typhoid fever");
-            //gameOn = false;
+            gameOn = false;
+            location.reload();
+            
         }
     }
     function init(){
