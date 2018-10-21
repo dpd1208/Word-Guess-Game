@@ -51,8 +51,6 @@ var gameWords = [
             var letters = document.createTextNode(" " + entry);
             guessedLetters.appendChild(letters); 
             wrongGuesses++;
-            var hangman = document.getElementById("hangman");
-        hangman.src = "http://www.writteninpencil.de/Projekte/Hangman/hangman" + wrongGuesses + ".png";
         }
         
         //checks if all letters have been found
@@ -76,4 +74,3 @@ var gameWords = [
         showWordArray();
     }
     
-    window.onload = init;
